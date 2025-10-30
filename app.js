@@ -14,7 +14,7 @@ let appState = {
 const SAMPLE_DATA = [
   { Referencia: '0003-01412012', Etiqueta: 'J056458T', Destino: 'Agronorte SRL', Ciudad: 'san justo', Ruta: 'ROS_4' },
   { Referencia: '0003-01411975', Etiqueta: 'J057556D', Destino: 'Andres Parra y Cia SCC', Ciudad: 'roque saenz peña', Ruta: 'ROS_8' },
-  // ... (agrega más ejemplos si deseas)
+  
 ];
 
 // ===============================
@@ -115,7 +115,7 @@ function init() {
 
   // --- MEJORA: Búsqueda automática al escanear / escribir ---
   elements.searchInput.addEventListener('input', function(e) {
-    if (e.target.value.length >= 6) { // Ajusta al largo común de tus códigos de etiqueta
+    if (e.target.value.length >= 8) { 
       performSearch();
     }
   });
