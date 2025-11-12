@@ -86,7 +86,6 @@ function init() {
   elements.searchModal = document.getElementById('searchModal');
   elements.searchInput = document.getElementById('searchInput');
   elements.searchSubmitBtn = document.getElementById('searchSubmitBtn');
-  elements.simulateScanBtn = document.getElementById('simulateScanBtn');
   elements.searchResultsList = document.getElementById('searchResultsList');
   elements.closeSearchBtn = document.getElementById('closeSearchBtn');
   elements.loadingSpinner = document.getElementById('loadingSpinner');
@@ -102,7 +101,6 @@ function init() {
   elements.clearDataBtn.addEventListener('click', clearData);
   elements.exitBtn.addEventListener('click', exitApp);
   elements.searchSubmitBtn.addEventListener('click', performSearch);
-  elements.simulateScanBtn.addEventListener('click', simulateScan);
   elements.closeSearchBtn.addEventListener('click', closeSearch);
   elements.fileInput.addEventListener('change', handleFileSelect);
 
@@ -275,7 +273,7 @@ function exitApp() {
     }
   }
 
-  // En una app real, esta opción cerraría la ventana o finalizaría la sesión
+  // Esta opción cierra la ventana o finalizaría la sesión
   if (confirm('¿Está seguro de que desea salir?')) {
     appState.etiquetas = [];
     appState.navigationStack = [];
@@ -560,20 +558,6 @@ function performSearch() {
 
   // --- MEJORA: Limpiar campo tras buscar ---
   setTimeout(() => elements.searchInput.value = '', 1000);
-}
-
-function simulateScan() {
-  // Simula el escaneo asignando una etiqueta no validada al input
-  const unvalidated = appState.etiquetas.filter(e => !e.validado);
-
-  if (unvalidated.length === 0) {
-    alert('Todas las etiquetas están validadas');
-    return;
-  }
-
-  const randomLabel = unvalidated[Math.floor(Math.random() * unvalidated.length)];
-  elements.searchInput.value = randomLabel.Etiqueta;
-  performSearch();
 }
 
 // ===============================
